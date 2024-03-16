@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using DataAccess.Concrete.InMemory;
+using DataAccess.Concrete.EntitiyFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,16 +12,52 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        CarDal _carDal;
+        EfCarDal _efCarDal;
 
-        public CarManager(CarDal carDal)
+        public CarManager(EfCarDal carDal)
         {
-            _carDal = carDal;
+            _efCarDal = carDal;
+        }
+
+        public void Add(Car car)
+        {
+            if (car.CarName.Length > 2)
+            {
+                _efCarDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Hatalı işlem");
+            }
+        }
+        public void Delete(Car car)
+        {
+            _efCarDal.Delete(car);
+        }
+
+        public List<Car> Get(int id)
+        {
+            return _efCarDal.GetAll(p => p.Id == id);
         }
 
         public List<Car> GetAll()
         {
-            return _carDal.GetAll();
+            return _efCarDal.GetAll();
+        }
+
+        public List<Car> GetCarsByBrandId(int id)
+        {
+            return _efCarDal.GetAll(p=>p.BrandId == id);
+        }
+
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _efCarDal.GetAll(p => p.ColorId == id);
+        }
+
+        public void Update(Car car)
+        {
+            _efCarDal.Update(car);
         }
     }
 }

@@ -2,14 +2,14 @@
 
 
 using Business.Concrete;
-using DataAccess.Concrete.InMemory;
+using DataAccess.Concrete.EntitiyFramework;
 
 
-CarManager carManager = new CarManager(new CarDal());
+CarManager carManager = new CarManager(new EfCarDal());
 
-foreach (var Car in carManager.GetAll())
+foreach (var car in carManager.GetAll())
 {
-    Console.WriteLine(Car.Id+" "+Car.ModelYear+" "+Car.DailyPrice+" TL");
+    Console.WriteLine(car.CarName);
 }
 
 
