@@ -14,10 +14,23 @@ using DataAccess.Concrete.EntitiyFramework;
 
 CarManager carManager = new CarManager(new EfCarDal());
 
-foreach (var car in carManager.GetCarDetailDtos())
+var result = carManager.GetCarDetailDtos();
+
+if (result.Success==true)
 {
-    Console.WriteLine(car.BrandName + car.CarName + car.ColorName + car.DailyPrice);
+   foreach (var car in result.Data)
+{
+    //Trim Başında ki ve sonunda ki boşlukarı siler
+    Console.WriteLine(car.BrandName.Trim() + " / " + car.CarName.Trim() + " / " + car.ColorName.Trim() + " / " + car.DailyPrice);
+} 
+
 }
+else
+{
+    Console.WriteLine(result.Message);
+}
+
+
 
 
 
@@ -31,7 +44,7 @@ static void Brand()
 {
     CarManager carManager = new CarManager(new EfCarDal());
 
-    foreach (var car in carManager.GetAll())
+    foreach (var car in carManager.GetAll().Data)
     {
         Console.WriteLine(car.CarId);
     }
