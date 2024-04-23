@@ -21,7 +21,8 @@ if (result.Success==true)
    foreach (var car in result.Data)
 {
     //Trim Başında ki ve sonunda ki boşlukarı siler
-    Console.WriteLine(car.BrandName.Trim() + " / " + car.CarName.Trim() + " / " + car.ColorName.Trim() + " / " + car.DailyPrice);
+    //Kullanımı car.BrandName.Trim()
+    Console.WriteLine(car.BrandName + " / " + car.CarName + " / " + car.ColorName + " / " + car.DailyPrice);
 } 
 
 }

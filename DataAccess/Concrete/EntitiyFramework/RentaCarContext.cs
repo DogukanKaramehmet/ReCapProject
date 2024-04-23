@@ -14,10 +14,13 @@ namespace DataAccess.Concrete.EntitiyFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=RentaCar;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=RentACar;Trusted_Connection=True");
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Rental> Rentals { get; set; }S
+
     }
 }
