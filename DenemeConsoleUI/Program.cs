@@ -51,12 +51,12 @@ static void Brand()
     }
 }
 
-static void Color()
-{
-    ColorManager colorManager = new ColorManager(new EfColorDal());
+//static void Color()
+//{
+//    ColorManager colorManager = new ColorManager(new EfColorDal());
 
-    foreach (var color in colorManager.GetAll())
-    {
-        Console.WriteLine(color.ColorId + " = " + color.ColorName);
-    }
-}
+//    foreach (var color in colorManager.GetAll())
+//    {
+//        Console.WriteLine(color.ColorId + " = " + color.ColorName);
+//    }
+//}

@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.EntitiyFramework
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Rental> Rentals { get; set; }S
+        public DbSet<Rental> Rentals { get; set; }
 
     }
 }
